@@ -49,7 +49,7 @@ import org.opencv.core.Point;
 
 public class Test extends ListenerAdapter{
 
-    static int select =7;//1 monkey 2 ghost 3 fox 4 Balrog 5 snow 6 room 7 blackcat 8 time
+    static int select =10;//1 monkey 2 ghost 3 fox 4 Balrog 5 snow 6 room 7 blackcat 8 time 9 wood 10 bear
      private static JDA jda;
     private static final String channelId  = "1396656703277367326";
     static {
@@ -143,6 +143,8 @@ public class Test extends ListenerAdapter{
         String templatePath_cat_start="test_cat_start.png";
         
         String templatePath_time="test_time_tell.png";
+        String templatePath_wood="test_wood_tell.png";
+        String templatePath_bear="test_bear_tell.png";
         
         
 
@@ -409,6 +411,13 @@ public class Test extends ListenerAdapter{
                 if(select==8) {
                     found =detectCharacterOnScreen2(templatePath_time);
                 }
+                if(select==9) {
+                    found =detectCharacterOnScreen2(templatePath_wood);
+                }
+                if(select==10) {
+                    found =detectCharacterOnScreen2(templatePath_bear);
+                }
+                
                 Thread.sleep(10);
                 if (found!=null) {
                     Thread.sleep(1500);
@@ -444,7 +453,7 @@ public class Test extends ListenerAdapter{
                                    robot.mouseMove(clickX, clickY);
                                    robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
                                    robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);   
-                                    Thread.sleep(1500 + rand.nextInt(250));                             
+                                    Thread.sleep(1800 + rand.nextInt(250));                             
                                     found = detectCharacterOnScreen2(templatePath7);
                              }
                         }
@@ -621,7 +630,11 @@ public class Test extends ListenerAdapter{
            if(select==7)
                channel.sendMessage("黑貓").addFiles(FileUpload.fromData(file)).queue();      
            if(select==8)
-               channel.sendMessage("姑姑鐘").addFiles(FileUpload.fromData(file)).queue();  
+               channel.sendMessage("姑姑鐘").addFiles(FileUpload.fromData(file)).queue();
+            if(select==9)
+               channel.sendMessage("木頭人").addFiles(FileUpload.fromData(file)).queue();  
+            if(select==10)
+               channel.sendMessage("肯德熊").addFiles(FileUpload.fromData(file)).queue();  
     }
     
      
